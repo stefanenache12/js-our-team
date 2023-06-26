@@ -36,15 +36,26 @@ const ourTeam = [
     },
 ];
 
+let container = document.querySelector('.row');
+
 for (let index = 0; index < ourTeam.length; index++) {
         const element = ourTeam[index];
 
-    for (const key in element) {
-        console.log(key,element[key])
-
-        let container = document.querySelector('.container');
+        
         let card = document.createElement('div');
-        container.append(card);
-        card.innerHTML = `${key}: ${element[key]}`;
-    };
+        card.classList.add('col')
+        container.appendChild(card);
+
+
+        for (const key in element) {
+
+            if (key === 'profileImg') {
+              let img = document.createElement('img');
+              img.src = element[key];
+              card.appendChild(img);
+            } else {
+              let cardInfo = document.createElement('h4');
+              cardInfo.innerHTML = `${key}: ${element[key]}`;
+              card.appendChild(cardInfo);
+        }}
 };
