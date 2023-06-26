@@ -41,5 +41,10 @@ for (let index = 0; index < ourTeam.length; index++) {
 
     for (const key in element) {
         console.log(key,element[key])
+
+        let container = document.querySelector('.container');
+        let card = document.createElement('div');
+        container.append(card);
+        card.innerHTML = `${key}: ${element[key]}`;
     };
 };
